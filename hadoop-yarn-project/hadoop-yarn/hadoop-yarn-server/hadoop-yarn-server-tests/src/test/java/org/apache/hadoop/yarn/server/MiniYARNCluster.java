@@ -780,7 +780,7 @@ public class MiniYARNCluster extends CompositeService {
   public boolean waitForNodeManagersToConnect(long timeout)
       throws YarnException, InterruptedException {
     GetClusterMetricsRequest req = GetClusterMetricsRequest.newInstance();
-    for (int i = 0; i < timeout / 10; i++) {
+    for (long i = 0; i < timeout / 10; i++) {
       ResourceManager rm = getResourceManager();
       if (rm == null) {
         throw new YarnException("Can not find the active RM.");
